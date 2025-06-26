@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
 from PyQt6.QtWebEngineWidgets import *
-from PyQt6.QtWebEngineCore import QWebEngineUrlRequestInterceptor
+# from PyQt6.QtWebEngineCore import QWebEngineUrlRequestInterceptor
 import re
 
 class Myweb_browser(QMainWindow):
@@ -83,7 +83,7 @@ class Myweb_browser(QMainWindow):
         self.browser.page().profile().downloadRequested.connect(self.handle_download)
     
     def handle_download(self , item):
-        path = QFileDialog.getSaveFileName(None, "Save File", item.path())[0]
+        path = QFileDialog.getSaveFileName(None, "Save File", item.downloadFileName())[0]
         if path:
             item.setPath(path)
             item.accept()
