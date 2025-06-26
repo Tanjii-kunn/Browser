@@ -87,7 +87,7 @@ class Myweb_browser(QMainWindow):
         if path:
             item.setPath(path)
             item.accept()
-        
+
 
         
     def handle_load_result(self, success):
